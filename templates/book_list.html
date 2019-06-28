@@ -1,0 +1,13 @@
+{% include "base.html" %}
+
+
+{% block content %}
+
+<h1> This is the Book List</h1>
+{% for book in queryset %}
+
+        <p>{{book}}</p>
+
+{% endfor %}
+
+{% endblock content %}
