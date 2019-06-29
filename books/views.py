@@ -35,7 +35,7 @@ def exercise_detail(request,book_slug,chapter_number,exercise_number):
     exercise = Exercise.objects\
         .filter(chapter__book__slug=book_slug)\
         .filter(chapter__chapter_number=chapter_number)\
-        .filter(excersise_number=exercise_number)
+        .filter(exercise_number=exercise_number)
     if exercise.exists():
         context ={
             'exercise':exercise[0]

@@ -3,8 +3,8 @@
 
 {% block breadcrumb %}
         <li class="breadcrumb-item " aria-current="page"><a href="{% url 'books:book-list' %}">Book List</a></li>
-        <li class="breadcrumb-item " aria-current="page"><a href="{% url 'books:book-detail' exercise.chapter.book.slug %}">{{exercise.chapter.book.title}}</a></li>
-        <li class="breadcrumb-item " aria-current="page"><a href="{% url 'books:chapter-detail' exercise.chapter.book.slug exercise.chapter.chapter_number %}">{{exercise.chapter.title}}</a></li>
+        <li class="breadcrumb-item " aria-current="page"><a href="{{exercise.chapter.book.get_absolute_url}}">{{exercise.chapter.book.title}}</a></li>
+        <li class="breadcrumb-item " aria-current="page"><a href="{{chapter.book.get_absolute_url}}">{{exercise.chapter.title}}</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{exercise}}</li>
 {% endblock breadcrumb %}
 
@@ -17,14 +17,14 @@
         <p>{{exercise.chapter.title}}</p>
         <p>{{exercise.chapter.book.title}}</p>
 
-        <ul>
+        {% comment %} <ul>
                 {% for exercise in chapter.exercise_set.all() %}
 
-                <li> <a href="{% url 'books:exercise-detail' chapter.book.slug chapter.chapter_number exercise.exercise_number %}"> </a> {{ exercise.title}} </li>
+                <li> <a href="{{exercise.get_absolute_url}}"> </a> {{ exercise.title}} </li>
 
                 {% endfor %}
 
 
-        </ul>
+        </ul> {% endcomment %}
 
 {% endblock content %}
